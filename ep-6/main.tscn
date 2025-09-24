@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://dn7ayh1pikjeo"]
+
+[ext_resource type="Script" uid="uid://cev3bl1vixbuf" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b0sb3pgxl2n42" path="res://xr_camera_3d.gd" id="2_0xm2m"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+albedo_color = Color(0.007843138, 1, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+
+[sub_resource type="SphereMesh" id="SphereMesh_7dm0k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+albedo_color = Color(1, 1, 0.02745098, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h2yge"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(1, 1, 0.02745098, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_ig7tw")
+
+[node name="FLoor" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7dm0k")
+surface_material_override/0 = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5124784, 10.528444)
+current = true
+script = ExtResource("2_0xm2m")
+
+[node name="lefthand" type="XRController3D" parent="XROrigin3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/lefthand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5822873, 0)
+mesh = SubResource("SphereMesh_7dm0k")
+surface_material_override/0 = SubResource("StandardMaterial3D_0xm2m")
+
+[node name="righthand" type="XRController3D" parent="XROrigin3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/righthand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.788444, 2.595666, 0)
+mesh = SubResource("CapsuleMesh_h2yge")
+surface_material_override/0 = SubResource("StandardMaterial3D_1bvp3")

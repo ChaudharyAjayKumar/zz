@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b82os5lenw2ke"]
+
+[ext_resource type="PackedScene" uid="uid://cg0ldk4hibj7x" path="res://Coin_game.tscn" id="1_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://cofpfqc8g4hw0" path="res://hud.tscn" id="2_fos0i"]
+[ext_resource type="PackedScene" uid="uid://k38cjxytwro6" path="res://player.tscn" id="3_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://dw51ta0qmxdwf" path="res://coin.tscn" id="4_lgr22"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="World" parent="." instance=ExtResource("1_cm0pq")]
+
+[node name="HUD" parent="." instance=ExtResource("2_fos0i")]
+
+[node name="Player" parent="." instance=ExtResource("3_3dxm6")]
+
+[node name="Coin2" parent="." instance=ExtResource("4_lgr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, 1)
+
+[node name="Coin3" parent="." instance=ExtResource("4_lgr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -2)
+
+[node name="Coin4" parent="." instance=ExtResource("4_lgr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -3)
+
+[node name="Coin6" parent="." instance=ExtResource("4_lgr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 5)
+
+[node name="Coin" parent="." instance=ExtResource("4_lgr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 2)
+
+[node name="Coin5" parent="." instance=ExtResource("4_lgr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -5)

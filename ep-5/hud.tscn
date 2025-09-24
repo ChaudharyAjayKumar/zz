@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cofpfqc8g4hw0"]
+
+[ext_resource type="Script" uid="uid://pemshav36rr5" path="res://hud.gd" id="1_37p78"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_37p78")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 381.0
+offset_bottom = 84.0
+pivot_offset = Vector2(16, 16)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+pivot_offset = Vector2(16, 16)
+theme_override_colors/font_color = Color(1, 0, 0.6392157, 1)
+theme_override_font_sizes/font_size = 28
+text = "Score:0
+"
+horizontal_alignment = 1
+vertical_alignment = 1

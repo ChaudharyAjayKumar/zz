@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0utudcvad5ar"]
+
+[ext_resource type="Script" uid="uid://bgtkdnt2fheay" path="res://box.gd" id="1_0f027"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0f027"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f027"]
+albedo_color = Color(0.10980392, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0f027"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2c62f"]
+albedo_color = Color(0.4776014, 0.3001036, 0, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5593411, 0, 0, 0, 2.2628307, 0, 0, 0, 1.4471362, 5, 0.7779081, 5)
+mesh = SubResource("PlaneMesh_0f027")
+surface_material_override/0 = SubResource("StandardMaterial3D_0f027")
+
+[node name="Box" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0304947, 1.3323425, 4.803896)
+mesh = SubResource("BoxMesh_0f027")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c62f")
+script = ExtResource("1_0f027")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 2, 2)
+shadow_enabled = true
+shadow_normal_bias = 1.111
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.8660254, 0.38302222, -0.32139382, 0, 0.64278764, 0.76604444, 0.5, -0.66341394, 0.5566704, 0, 4.293502, 6.710863)
+current = true

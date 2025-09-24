@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://jekavrks6x7u"]
+
+[ext_resource type="Script" uid="uid://b8ktanlo71luv" path="res://follower_1.gd" id="1_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://dqkcsjhuti508" path="res://bouncing-ball-sound-effect-by-engyclick-280716.mp3" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://b67u8sour12o1" path="res://follower_2.gd" id="3_h2yge"]
+
+[sub_resource type="Curve3D" id="Curve3D_1bvp3"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 2, 2, 0, 0, 0, 0, 0, 0, 9, 4, -2, 0, 0, 0, 0, 0, 0, 13, 3, 1, 0, 0, 0, 0, 0, 0, 17, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_color = Color(0.23137255, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lquwl"]
+material = SubResource("StandardMaterial3D_h2yge")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7mycd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(1, 1, 0.26666668, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="myPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_1bvp3")
+
+[node name="Follower1" type="PathFollow3D" parent="myPath"]
+transform = Transform3D(-0.37139058, -0.3232541, -0.8703881, 1.4901161e-08, 0.9374369, -0.34815523, 0.9284766, -0.12930164, -0.34815517, 0, 0, 0)
+script = ExtResource("1_0xm2m")
+
+[node name="shpere" type="MeshInstance3D" parent="myPath/Follower1"]
+transform = Transform3D(1.0000001, -7.450581e-09, -2.9802322e-08, 7.450581e-09, 1, 7.450581e-09, -2.9802322e-08, -1.1175871e-08, 1, -0.3663169, 0.051014062, 0.13735956)
+mesh = SubResource("SphereMesh_lquwl")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="myPath/Follower1"]
+stream = ExtResource("2_h2yge")
+
+[node name="Follower2" type="PathFollow3D" parent="myPath"]
+transform = Transform3D(-0.37139058, -0.3232541, -0.8703881, 1.4901161e-08, 0.9374369, -0.34815523, 0.9284766, -0.12930164, -0.34815517, 0, 0, 0)
+script = ExtResource("3_h2yge")
+
+[node name="Cylinder" type="MeshInstance3D" parent="myPath/Follower2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("CylinderMesh_7mycd")
+surface_material_override/0 = SubResource("StandardMaterial3D_1bvp3")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="myPath/Follower2"]
+stream = ExtResource("2_h2yge")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.853163, 0.0016775199, 0.52164197, 0.0014486001, 0.99998343, -0.0055850255, -0.5216427, 0.005520588, 0.8531463, 5.369503, 0, 8.647346)
+current = true

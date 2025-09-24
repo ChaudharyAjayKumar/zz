@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy77j0dnn5i28"]
+
+[ext_resource type="Script" uid="uid://crdyguald7dit" path="res://sphere_1.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://c4rj8hlm72g5h" path="res://sphere_2.gd" id="2_0xm2m"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_color = Color(0.9455983, 0.8355851, 0.9627053, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1bvp3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lquwl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_color = Color(1, 0.09411765, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_0xm2m")
+surface_material_override/0 = SubResource("StandardMaterial3D_h2yge")
+
+[node name="Sphere1" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_ig7tw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere1"]
+shape = SubResource("SphereShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere1"]
+mesh = SubResource("SphereMesh_lquwl")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mycd")
+
+[node name="Sphere2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+script = ExtResource("2_0xm2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere2"]
+shape = SubResource("SphereShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere2"]
+mesh = SubResource("SphereMesh_lquwl")
+surface_material_override/0 = SubResource("StandardMaterial3D_272bh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 4.892254, 12.797388)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.835051, 14.140757)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://csq22vc5xxknf"]
+
+[ext_resource type="Script" uid="uid://ch8rsr00isnn8" path="res://Orbit.gd" id="1_8jwgy"]
+[ext_resource type="PackedScene" uid="uid://dvuhmarjuodx7" path="res://echair.tscn" id="2_ecerx"]
+
+[node name="ChairScene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 0, -16.390274)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 6.3945103, 14.162831)
+current = true
+script = ExtResource("1_8jwgy")
+target = NodePath("../echair")
+
+[node name="echair" parent="." instance=ExtResource("2_ecerx")]

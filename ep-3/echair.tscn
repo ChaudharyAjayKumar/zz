@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvuhmarjuodx7"]
+
+[ext_resource type="PackedScene" uid="uid://cuptgo0lfrmla" path="res://echair.glb" id="1_ej72g"]
+[ext_resource type="Script" uid="uid://dfvio2arumqx7" path="res://echair.gd" id="2_gvwbt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvwbt"]
+albedo_color = Color(0.09019608, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rg45q"]
+albedo_color = Color(0.08235294, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qd2x"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf5yn"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3pwa"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jdkm"]
+albedo_color = Color(0, 1, 1, 1)
+
+[node name="echair" instance=ExtResource("1_ej72g")]
+script = ExtResource("2_gvwbt")
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gvwbt")
+
+[node name="Cube_001" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rg45q")
+
+[node name="Cube_002" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2qd2x")
+
+[node name="Cube_003" parent="." index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mf5yn")
+
+[node name="Cube_004" parent="." index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_f3pwa")
+
+[node name="Cube_005" parent="." index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3jdkm")
